@@ -39,7 +39,7 @@ class CandidateController extends AbstractController
     }
 
 
-    #[Route('/candidat/{id}', name: 'app_candidate_delete_formation', methods: ['POST'])]
+    #[Route('/candidat/{id}/formation/supprimer', name: 'app_candidate_delete_formation', methods: ['POST'])]
     public function deleteFormation(
         Request $request,
         Formation $formation,
