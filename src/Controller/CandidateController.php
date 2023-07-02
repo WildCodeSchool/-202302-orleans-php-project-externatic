@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Candidate;
 use App\Entity\User;
 use App\Entity\Formation;
+use App\Entity\Experience;
 use App\Form\CandidateType;
 use App\Form\FormationType;
-use App\Repository\CandidateRepository;
 use App\Repository\FormationRepository;
+use App\Repository\ExperienceRepository;
+use App\Repository\CandidateRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -38,8 +40,7 @@ class CandidateController extends AbstractController
 
 
     #[Route('/candidat/{id}', name: 'app_candidate_delete_formation', methods: ['POST'])]
-    public function delete(
-        CandidateRepository $candidateRepository,
+    public function deleteFormation(
         Request $request,
         Formation $formation,
         FormationRepository $formationRepository
