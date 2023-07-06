@@ -10,25 +10,25 @@ class JobOfferFixtures extends Fixture
 {
     public const JOBOFFERS = [
         [
-            'job' => 'Data analyst', 'entreprise' => 'Wild code school', 'contract' => 'Alternance', 'city' => 'Nantes',
+            'job' => 'Data analyst', 'entreprise' => 'Bouygues Telecom', 'contract' => 'Alternance', 'city' => 'Nantes',
             'description' => 'Recherche de DATA ANALYST chez NEW-INFO, une grande entreprise d’INFORMATIQUE avec 
             un grand savoir-faire'
         ],
         [
-            'job' => 'Développeur web', 'entreprise' => 'Wild code school', 'contract' => 'CDD', 'city' => 'Orléans',
+            'job' => 'Développeur web', 'entreprise' => 'Coexya', 'contract' => 'CDD', 'city' => 'Orléans',
             'description' => 'Développeur Web Full-Stack H/F - Le guide côtier communautaire leader en Europe '
         ],
         [
-            'job' => 'Dev Back-end', 'entreprise' => 'Wild code school', 'contract' => 'CDI', 'city' => 'Angers',
+            'job' => 'Dev Back-end', 'entreprise' => 'PMU', 'contract' => 'CDI', 'city' => 'Angers',
             'description' => 'Recherche de DÉVELOPPEUR BACK-END chez BACK’YO, une grande entreprise de DÉVELOPPEUR '
         ],
         [
-            'job' => 'Développeur php', 'entreprise' => 'Wild code school', 'contract' => 'CDD', 'city' => 'Olivet',
+            'job' => 'Développeur php', 'entreprise' => 'L2C Recrutement ', 'contract' => 'CDD', 'city' => 'Olivet',
             'description' => 'Recherche de DÉVELOPPEUR PHP chez INFORMATIK, une grande entreprise SÉRIEUSE avec 
             un grand savoir-faire'
         ],
         [
-            'job' => 'Analyst Cybersécurité', 'entreprise' => 'Wild code school', 'contract' => 'CDI',
+            'job' => 'Analyst Cybersécurité', 'entreprise' => 'Eramet', 'contract' => 'CDI',
             'city' => 'Reims', 'description' => 'IT Compliance Project Manager H/F - Cybersécurité, résilience, 
             durabilité, RGPD'
         ],
