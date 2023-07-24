@@ -7,13 +7,13 @@ use App\Entity\Candidate;
 use App\Form\SearchJobType;
 use App\Entity\JobOfferSearch;
 use App\Repository\JobOfferRepository;
+use App\Repository\PostulationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[IsGranted('ROLE_ADMIN')]
 #[Route('/admin/consultant', name: 'admin_consultant_')]
 class AdminConsultantController extends AbstractController
 {
@@ -22,6 +22,7 @@ class AdminConsultantController extends AbstractController
     {
         $jobOfferSearch = new JobOfferSearch();
         $form = $this->createForm(SearchJobType::class, $jobOfferSearch);
+        $form->remove('localization')->remove('radius');
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $jobOffers = $jobOfferRepository->findLikeName($jobOfferSearch);
@@ -42,6 +43,7 @@ class AdminConsultantController extends AbstractController
         return $this->render('admin_consultant/show.html.twig', [
             'candidate' => $candidate,
             'jobOffer' => $jobOffer,
+            'postulations' => $jobOffer->getPostulations()
         ]);
     }
 }
