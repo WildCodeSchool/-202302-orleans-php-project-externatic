@@ -100,10 +100,19 @@ class JobOfferController extends AbstractController
     public function show(
         int $id,
         JobOfferRepository $jobOfferRepository,
+        PostulationRepository $postulationRepo,
     ): Response {
+        /** @var User */
+        $user = $this->getUser();
         $jobOffer = $jobOfferRepository->find($id);
+        if ($user != null) {
+            $candidate = $user->getCandidate();
+            $postulation = $postulationRepo->findOneByCandidateAndJoboffer($candidate, $jobOffer);
+        }
+
         return $this->render('/jobOffer/show.html.twig', [
             'jobOffer' => $jobOffer,
+            'postulation' => $postulation ?? null,
         ]);
     }
 
@@ -135,12 +144,14 @@ class JobOfferController extends AbstractController
                 $candidateRepository->save($candidate, true);
                 $jobOffer->addCandidate($candidate);
                 $jobOfferRepository->save($jobOffer);
+                $this->addFlash('success', 'Vous avez postulé à cette offre.');
             } elseif ($postulation !== null) {
                 $postulationRepo->remove($postulation);
                 $candidate->removePostulation($postulation);
                 $candidateRepository->save($candidate, true);
                 $jobOffer->removeCandidate($candidate);
                 $jobOfferRepository->save($jobOffer);
+                $this->addFlash('warning', 'Vous avez retiré votre candidature à cette offre.');
             }
         }
         return $this->redirectToRoute(
