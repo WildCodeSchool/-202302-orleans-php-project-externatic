@@ -141,8 +141,11 @@ class CandidateController extends AbstractController
     }
 
     #[Route('/{id}/formation/edit', name: 'app_candidate_edit_formation', methods: ['GET', 'POST'])]
-    public function editformation(Request $request, Formation $formation, FormationRepository $formationRepository): Response
-    {
+    public function editformation(
+        Request $request,
+        Formation $formation,
+        FormationRepository $formationRepository
+    ): Response {
 
         /** @var User */
         $user = $this->getUser();
